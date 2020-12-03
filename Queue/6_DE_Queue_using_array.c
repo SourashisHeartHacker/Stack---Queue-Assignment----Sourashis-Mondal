@@ -28,6 +28,8 @@ DEQueue *CreateDEQueue(int capacity)
     q->a = (int *)malloc(sizeof(int) * capacity);
     q->front = q->rear = -1;
     q->capacity = capacity;
+
+    return q;
 }
 
 void DeleteQueue(DEQueue *q)
@@ -42,7 +44,10 @@ int isEmpty(DEQueue *q)
     if (q->front == -1) ///If no enqueue operation was done on the queue
         return 1;
     if (q->front > q->rear) /// If queue becomes empty after performing dequeue operation
+    {
+        q->front = q->rear = -1;
         return 1;
+    }
     else
         return 0;
 }
@@ -151,12 +156,12 @@ void printFromFront(DEQueue *q)
         printf("%d ", x);
         InsertRear(temp, x);
     }
+    while (!isEmpty(temp))
+    {
+        InsertRear(q, DeleteFront(temp));
+    }
 
-    free(q->a);
-    q->a = temp->a;
-    q->front = temp->front;
-    q->rear = temp->rear;
-    //DeleteQueue(temp);
+    DeleteQueue(temp);
 }
 
 void printarray(int start, int end, int *a)
