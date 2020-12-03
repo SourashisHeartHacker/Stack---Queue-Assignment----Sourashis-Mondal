@@ -101,6 +101,8 @@ int DeleteFront(DEQueue *q)
     int x = q->front->data;
     Node *temp = q->front;
     q->front = q->front->next;
+
+    temp->next = NULL;
     //free(temp);
     q->size--;
     return x;
@@ -131,6 +133,7 @@ int DeleteRear(DEQueue *q)
                 q->rear = p;
                 break;
             }
+            p = p->next;
         }
     }
 
@@ -166,9 +169,12 @@ void printFromFront(DEQueue *q)
         InsertRear(temp, x);
     }
 
-    DeleteQueue(q);
-    q->front = temp->front;
-    q->rear = temp->rear;
+    while (!isEmpty(temp))
+    {
+        InsertRear(q, DeleteFront(temp));
+    }
+
+    DeleteQueue(temp);
 }
 
 int main()
@@ -244,7 +250,6 @@ int main()
 
         default:
             printf("\nWrong choice!!!!");
-            break;
         }
     }
 

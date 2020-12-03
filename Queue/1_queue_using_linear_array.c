@@ -19,7 +19,7 @@ Queue *CreateQueue(int capacity)
     q->a = (int *)malloc(sizeof(int) * capacity);
     q->front = q->rear = -1;
     q->capacity = capacity;
-    
+
     return q;
 }
 
@@ -157,6 +157,5 @@ int main()
     printf("\n\nNow queue becomes(from front to rear): ");
     printFromFront(q);
 
-    
-    return 0;
+        return 0;
 }

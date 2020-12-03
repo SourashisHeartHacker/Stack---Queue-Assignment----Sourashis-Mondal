@@ -80,7 +80,7 @@ void print_steps_ToH(int n)
 
 int main()
 {
-    printf("\nHello world69\n\n");
+    printf("\nHello world\n\n");
 
     print_steps_ToH(3);
     return 0;

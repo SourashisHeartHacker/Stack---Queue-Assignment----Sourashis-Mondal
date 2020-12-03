@@ -19,7 +19,7 @@ Queue *CreateQueue(int capacity)
     q->a = (int *)malloc(sizeof(int) * capacity);
     q->front = q->rear = -1;
     q->capacity = capacity;
-    
+
     return q;
 }
 

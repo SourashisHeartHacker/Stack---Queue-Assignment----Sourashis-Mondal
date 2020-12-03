@@ -153,7 +153,6 @@ DATATYPE stackMin(Stack *s)
     }
 
     free(temp);
-    return min;
 }
 
 int main()

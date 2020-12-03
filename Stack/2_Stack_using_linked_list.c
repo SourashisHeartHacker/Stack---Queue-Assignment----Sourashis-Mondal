@@ -136,7 +136,7 @@ void printStackFromBottom(Stack *s)
 
 int main()
 {
-    printf("Hello world69\n\n");
+    printf("Hello world\n\n");
 
     printf("Enter elements to store in stack\n(Enter -1 to indicate end of insertion): ");
     int x = 69;
